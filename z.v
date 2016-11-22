@@ -28,7 +28,7 @@ module z(
 	
 	parameter regwidth=16;	
 	parameter romwidth=16;
-	parameter romdepth=16
+	parameter romdepth=16;
 	
 	reg [regwidth-1:0] zreg;
 	reg [romwidth-1:0] zrom [0:romdepth-1];
