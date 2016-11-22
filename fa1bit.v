@@ -21,11 +21,18 @@
 
 
 module fa1bit(
-    output cout,
-    output sum,
-    input a,
-    input b,
-    input cin
-    );
-    assign {cout,sum}=a+b+cin;
+	output cout,
+	output sum,
+	input a,
+	input b,
+	input cin,
+	input op
+	);
+	
+	// op=1: subtraction (a-b)
+	// op=0: addition
+	
+	assign cout=(op&cin&(~a))|(op&(~a)&b)|((~op)&a&b)|((~op)&cin&a)|(cin&b);
+	assign sum=((~a)&(~b)&cin)|((~a)&b&(~cin))|(a&b&cin)|(a&b&cin);
+	
 endmodule
